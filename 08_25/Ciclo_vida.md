@@ -1,6 +1,6 @@
 # Ciclo de Vida de Software
 
-## Conceito de ciclo de vida
+## Conceito do ciclo de Vida
 
 O ciclo de vida é definido pela norma ISO/IEC/IEEE 12207 como a evolução de um
 sistema, produto, serviço, projeto ou outra entidade construída por seres
