@@ -82,3 +82,55 @@ recursos antes de serem incorporadas.
 
 Um escopo bem definido reduz ambiguidades, facilita o planejamento e permite
 avaliar se o produto e o projeto atingiram os resultados esperados.
+
+## Golden Plating
+
+Golden Plating é a prática de adicionar recursos, funcionalidades ou melhorias
+extras ao produto ou ao projeto que não foram solicitados pelo cliente ou não
+são essenciais para atender aos requisitos acordados.
+
+Em outras palavras, a equipe faz “mais do que foi pedido”, muitas vezes com a
+intenção de melhorar o resultado, mas sem validação formal do cliente.
+
+### Características do Golden Plating
+
+- inclusão de funções que não fazem parte do escopo original;
+- melhorias que não geram valor direto para o cliente no momento;
+- desenvolvimento de itens “por acharem que é melhor” sem necessidade;
+- aumento de complexidade sem benefício comprovado;
+- risco de atrasar entregas, aumentar custo e consumir recursos.
+
+### Exemplo
+
+Em um sistema de gestão de vendas, o cliente pede apenas cadastro de clientes,
+registro de pedidos e emissão de relatórios. Se a equipe decide criar também um
+portal completo para clientes, chatbot, integração com redes sociais e módulo de
+IA para previsão de demanda sem que isso tenha sido solicitado, isso pode ser
+considerado Golden Plating.
+
+### Por que é problemático?
+
+O Golden Plating pode causar diversos impactos negativos, como:
+
+- aumento do prazo do projeto;
+- aumento do custo final;
+- maior dificuldade de testes e manutenção;
+- foco em itens irrelevantes em vez do que realmente agrega valor;
+- perda de clareza no escopo;
+- risco de insatisfação do cliente se o que foi entregue não for o que ele
+  queria ou precisava.
+
+### Como evitar
+
+- manter o escopo claramente definido;
+- validar mudanças com o cliente antes de implementá-las;
+- priorizar requisitos essenciais e com alto valor;
+- analisar o retorno esperado antes de cada funcionalidade adicional;
+- controlar mudanças por meio de processo de gestão de escopo.
+
+### Conclusão
+
+O Golden Plating deve ser evitado porque, embora pareça melhorar o produto,
+normalmente gera desperdício e descontrole. O ideal é entregar apenas o que foi
+acordado, com qualidade e dentro do escopo, e incluir melhorias adicionais
+somente quando houver demanda, aprovação e justificativa clara.

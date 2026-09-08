@@ -1,3 +1,7 @@
+# Stakeholder
+
+Toda parte interessada no projeto
+
 # Organização da Equipe Scrum
 
 No Scrum, o trabalho é realizado por um **Scrum Team**. O time é formado pelo
