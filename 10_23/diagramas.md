@@ -1,35 +1,33 @@
-o processo unificado UP adota o desenvolvimento de software baseado em componentes, ou seja, preve que o sistema de software pode ser construído
-através da composição de componentes de softwares interconectados através de interfaces bem definidas. seg pressman seguindo a UML o processo unificado define os componentes
-de software qye serão usados para construir o sistema e as interfaces.
-maneira mais facil de visualizar o software inteiro em formato grafico.
-o UP adota desenvolvimento iterativo e incremental e define as funções do sistema aplicando uma abordagem baseada em cenários denominada modelo de casos de uso.
+## Processo Unificado (UP)
 
----
+O Processo Unificado (UP) adota o desenvolvimento de software baseado em componentes. O sistema é construído pela composição de componentes conectados por interfaces bem definidas.
 
-RUP é uma instancia mais especifica do UP e as melhores paticas de processos de software incorporadas nestes processos de software incorporadas neste processo são Pressman e sommervile
-desenvolvimento iterativo;
-gerencia de requisitos;
-utilização de arquitetura e componentes;
-exemplo de rup
+O UP também utiliza desenvolvimento iterativo e incremental. Para identificar as funções do sistema, aplica uma abordagem baseada em cenários: o modelo de casos de uso.
 
----
+## RUP
 
-qual nivel de capacidade da mais confilto, refatoração 2
+O Rational Unified Process (RUP) é uma instanciação mais específica do UP. Entre as práticas associadas ao processo estão:
 
----
+- Desenvolvimento iterativo.
+- Gerenciamento de requisitos.
+- Uso de arquitetura e componentes.
+- Integração contínua do trabalho da equipe.
 
-UML define a representação gráfica que deve ser utilizada pra modelar sistemas orientados a objeto, através de grafos. Ela não define fases ou como a linguagem deve ser utilizada ao logno das fases
-do processo n e metodologia, so apresenta maneiras de mostrar o seu sistema de maneiras mais intuitiva.
-grafos-parte matematica + parte visual.
+### Anotação de aula
 
----
+Na atividade sobre conflito e refatoração, foi indicado o nível de capacidade 2.
 
-exemplo de UML:
-visao geral do sistema de emprestimo de livros
+## UML
 
-O sistema permite que leitores pesquisem o acervo, consultem a disponibilidade e solicitem emprestimos. O bibliotecario administra os livros e confirma emprestimos e devolucoes. O sistema registra os prazos, atualiza a disponibilidade e permite consultar emprestimos em atraso.
+A UML (Unified Modeling Language) é uma linguagem visual usada para representar e modelar sistemas, especialmente sistemas orientados a objetos. Seus diagramas ajudam a visualizar diferentes aspectos do software.
 
-### Visao geral do sistema
+A UML não define as fases de um processo de desenvolvimento nem determina quando cada diagrama deve ser usado. Ela fornece notações gráficas para representar o sistema.
+
+## Exemplo: sistema de empréstimo de livros
+
+O sistema permite que leitores pesquisem o acervo, consultem a disponibilidade e solicitem empréstimos. O bibliotecário administra os livros e registra empréstimos e devoluções. O sistema controla os prazos, atualiza a disponibilidade e permite consultar atrasos.
+
+### Visão geral
 
 ```mermaid
 flowchart LR
@@ -69,7 +67,7 @@ flowchart LR
 	bibliotecario -->|Consultar atrasos| sistema
 ```
 
-### Diagrama de sequencia: solicitacao de emprestimo
+### Diagrama de sequência: solicitação de empréstimo
 
 ```mermaid
 sequenceDiagram
@@ -91,9 +89,9 @@ sequenceDiagram
 	Sistema-->>Leitor: Informa confirmacao e prazo de devolucao
 ```
 
-### Diagrama de componentes: compras online
+## Diagrama de componentes: loja online
 
-Neste exemplo, a loja online e dividida em componentes com responsabilidades distintas. A interface recebe as acoes do cliente e utiliza os servicos de catalogo, carrinho e pedidos. O componente de pedidos coordena o pagamento, a baixa de estoque, o envio e as notificacoes. O provedor de pagamento e o servico de entrega sao sistemas externos integrados a loja.
+Neste exemplo, a loja online é dividida em componentes com responsabilidades distintas. A interface recebe as ações do cliente e utiliza os serviços de catálogo, carrinho e pedidos. A gestão de pedidos coordena o pagamento, a atualização do estoque, o envio e as notificações. O provedor de pagamento e o serviço de entrega são sistemas externos integrados à loja.
 
 ```mermaid
 flowchart LR
@@ -119,22 +117,23 @@ flowchart LR
 	catalogo --> dados
 	carrinho --> dados
 	pedidos --> dados
-	pedidos -->|Solicita autorizacao| pagamento
-	pagamento -->|Resultado do pagamento| pedidos
+	pedidos -.->|Solicita autorizacao| pagamento
+	pagamento -.->|Resultado do pagamento| pedidos
 	pedidos --> estoque
 	estoque --> dados
-	pedidos -->|Solicita envio| entrega
-	entrega -->|Codigo de rastreio| pedidos
+	pedidos -.->|Solicita envio| entrega
+	entrega -.->|Codigo de rastreio| pedidos
 	pedidos --> notificacoes
 	notificacoes -->|Confirmacao e atualizacoes| cliente
 ```
 
-Fluxo principal: o cliente escolhe produtos, monta o carrinho e confirma o pedido. A loja solicita o pagamento; se aprovado, registra o pedido, atualiza o estoque, solicita a entrega e envia a confirmacao ao cliente.
-quando a linha é solida, significa que o componente faz parte da loja online e interage com outros componentes internos.
-quando a linha é pontilhada, significa que o componente é externo e nao faz parte da loja online, mas interage com ela. Ou seja,
-a pontilhada é opcional, mas a solida é obrigatoria.
+As linhas contínuas representam as conexões entre partes internas da loja. As linhas pontilhadas destacam as integrações com os serviços externos de pagamento e entrega. O estilo da linha não indica se uma conexão é obrigatória ou opcional: isso depende das regras e dos requisitos do sistema.
 
-diagrama de objetos: solicitacao de emprestimo
+**Fluxo principal:** o cliente escolhe os produtos, monta o carrinho e confirma o pedido. A loja solicita o pagamento e, após a aprovação, registra o pedido, atualiza o estoque, solicita a entrega e envia uma confirmação ao cliente.
+
+## Diagrama de classes: sistema de empréstimo
+
+O diagrama abaixo apresenta classes e alguns de seus atributos e métodos. As relações mostram que um leitor pode realizar empréstimos, e cada empréstimo se refere a um livro e é registrado por um bibliotecário.
 
 ```mermaid
 classDiagram
@@ -166,4 +165,28 @@ classDiagram
     +status: String
   }
 
+	Leitor "1" --> "0..*" Emprestimo : realiza
+	Emprestimo "0..*" --> "1" Livro : inclui
+	Bibliotecario "1" --> "0..*" Emprestimo : registra
+```
+
+## Diagrama de atividade: solicitação de empréstimo
+
+O fluxo começa com a pesquisa do livro. Se houver exemplar disponível e o leitor estiver apto a emprestar, o bibliotecário registra a operação, o sistema atualiza o acervo e informa o prazo de devolução. Caso contrário, o leitor recebe uma mensagem explicando que o empréstimo não pode ser concluído.
+
+```mermaid
+flowchart TD
+		inicio([Início]) --> pesquisar[Leitor pesquisa um livro]
+		pesquisar --> consultar[Sistema consulta a disponibilidade do acervo]
+		consultar --> disponivel{Há exemplar disponível?}
+		disponivel -->|Nao| indisponivel[Informar que o livro nao esta disponivel]
+		indisponivel --> fim([Fim])
+		disponivel -->|Sim| validar[Bibliotecario valida o cadastro do leitor]
+		validar --> apto{Leitor esta apto a emprestar?}
+		apto -->|Nao| recusado[Informar o motivo da recusa]
+		recusado --> fim
+		apto -->|Sim| registrar[Registrar o emprestimo e o prazo de devolucao]
+		registrar --> atualizar[Atualizar a disponibilidade do livro]
+		atualizar --> confirmar[Confirmar o emprestimo ao leitor]
+		confirmar --> fim
 ```
