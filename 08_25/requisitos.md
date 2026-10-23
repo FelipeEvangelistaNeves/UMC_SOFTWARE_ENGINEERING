@@ -61,6 +61,37 @@ em caso de falha.
 O software deve ser organizado de modo que correções e melhorias possam ser
 realizadas com segurança e esforço controlado.
 
+## Requisitos de dados
+
+Requisitos de dados definem como as informações do sistema devem ser
+armazenadas, acessadas, mantidas e protegidas. Eles estão relacionados ao
+conteúdo, à estrutura e ao uso dos dados produzidos e manipulados pelo
+software.
+
+Esses requisitos ajudam a garantir que a informação seja consistente,
+confiável e útil para os usuários e para a organização.
+
+Exemplos:
+
+- o sistema deve armazenar o nome, e-mail e CPF de cada usuário;
+- os dados de clientes devem ser mantidos em um formato padronizado;
+- o sistema deve impedir duplicidade de registros de usuários;
+- o sistema deve manter histórico de alterações em pedidos;
+- o sistema deve excluir dados somente mediante autorização adequada;
+- o sistema deve garantir a integridade dos dados financeiros da venda.
+
+Além disso, os requisitos de dados podem incluir regras sobre:
+
+- qualidade dos dados: precisão, consistência e validade;
+- integridade: impedir registros incompletos ou inconsistentes;
+- segurança: controlar acesso e proteger informações sensíveis;
+- disponibilidade: garantir que os dados estejam acessíveis quando necessário;
+- privacidade: respeitar regras de uso e armazenamento de informações pessoais.
+
+Em muitos projetos, os requisitos de dados são essenciais para a boa
+operação do sistema, pois influenciam diretamente a confiabilidade das
+informações, a tomada de decisões e a conformidade com normas e políticas.
+
 ## Diferença entre os tipos
 
 | Requisitos funcionais                     | Requisitos não funcionais                        |
